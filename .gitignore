@@ -1,0 +1,8 @@
+/.idea
+/bin
+/lib
+.classpath
+.project
+BRLS.iml
+library.obj
+.DS_Store
