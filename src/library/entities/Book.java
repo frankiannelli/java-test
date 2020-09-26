@@ -20,6 +20,14 @@ public class Book implements Serializable, IBook {
         this.state = BookState.AVAILABLE;
     }
 
+    public Book(String author, String title, String callNo, int id, BookState state) {
+        this.author = author;
+        this.title = title;
+        this.callNumber = callNo;
+        this.id = id;
+        this.state = state;
+    }
+
     
     @Override
     public int getId() {
