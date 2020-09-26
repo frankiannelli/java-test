@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class LibraryTest {
+class BookTest {
 
     @BeforeEach
     void setUp() {
@@ -17,16 +17,12 @@ class LibraryTest {
     }
 
     @Test
-    void testPatronCanBorrow() {
+    void isAvailable() {
+       fail("not yet implemented");
     }
 
     @Test
-    void testIssueLoan() {
-        fail("Test not yet implemented");
-    }
-
-    @Test
-    void testCommitLoan() {
-        fail("Test not yet implemented");
+    void borrowFromLibrary() {
+        fail("not yet implemented");
     }
 }
