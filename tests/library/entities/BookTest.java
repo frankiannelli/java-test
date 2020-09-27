@@ -1,15 +1,12 @@
 package library.entities;
 
-import org.junit.Rule;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.rules.ExpectedException;
+import org.junit.jupiter.api.function.Executable;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class BookTest {
     IBook book;
@@ -56,19 +53,13 @@ class BookTest {
         assertFalse(isAvailable);
     }
 
-    @Rule
-    public ExpectedException expectedEx = ExpectedException.none();
-
     @Test
     void testBorrowFromLibraryThrowsWhenOnLoan() {
         IBook.BookState state = IBook.BookState.ON_LOAN;
         book = new Book(author, title, callNo, id, state);
-        try {
-            book.borrowFromLibrary();
-            fail("Should have thrown exception but did not!");
-        } catch (final RuntimeException e) {
-            final String msg = "Book: cannot borrow while book is in state: ON_LOAN";
-            assertEquals(msg, e.getMessage());
-        }
+        Executable e = () ->  book.borrowFromLibrary();
+        Throwable t = assertThrows(RuntimeException.class, e);
+        final String msg = "Book: cannot borrow while book is in state: ON_LOAN";
+        assertEquals(msg, t.getMessage());
     }
 }

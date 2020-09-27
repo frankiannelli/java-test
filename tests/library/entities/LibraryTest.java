@@ -9,6 +9,9 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+// this testing method uses Stubs
+// although some of these tests are done with mocks I
+// have left them here for illustration
 class LibraryTest {
     ILibrary library;
 
@@ -33,15 +36,5 @@ class LibraryTest {
         IPatron patronStub = new PatronStub2();
         boolean patronCanBorrow = library.patronCanBorrow((patronStub));
         assertFalse(patronCanBorrow);
-    }
-
-    @Test
-    void testIssueLoan() {
-        fail("Test not yet implemented");
-    }
-
-    @Test
-    void testCommitLoan() {
-        fail("Test not yet implemented");
     }
 }
