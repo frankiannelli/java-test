@@ -20,6 +20,7 @@ public class Book implements Serializable, IBook {
         this.state = BookState.AVAILABLE;
     }
 
+    // create full state constructor for testing
     public Book(String author, String title, String callNo, int id, BookState state) {
         this.author = author;
         this.title = title;
