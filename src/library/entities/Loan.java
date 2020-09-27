@@ -19,6 +19,20 @@ public class Loan implements Serializable, ILoan {
 
         this.state = LoanState.PENDING;
     }
+
+    // create full state constructor for testing
+    public Loan(IBook book, IPatron patron, LoanState loanState) {
+        this.book = book;
+        this.patron = patron;
+        this.state = loanState;
+    }
+
+    public Loan(IBook book, IPatron patron, LoanState loanState, Date dueDate) {
+        this.book = book;
+        this.patron = patron;
+        this.state = loanState;
+        this.dueDate = dueDate;
+    }
  
     
     @Override
@@ -53,9 +67,9 @@ public class Loan implements Serializable, ILoan {
         this.loanId = loanId;
         this.dueDate = dueDate;
         this.state = LoanState.CURRENT;
-        
+
         patron.takeOutLoan(this);
-        book.borrowFromLibrary();                
+        book.borrowFromLibrary();
     }
 
     
